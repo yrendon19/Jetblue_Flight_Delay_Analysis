@@ -1,0 +1,14 @@
+year,month,carrier,carrier_name,airport,airport_name,arr_flights,arr_del15,carrier_ct,weather_ct,nas_ct,security_ct,late_aircraft_ct,arr_cancelled,arr_diverted,arr_delay,carrier_delay,weather_delay,nas_delay,security_delay,late_aircraft_delay
+2024,11,B6,JetBlue Airways,JFK,"New York, NY: John F. Kennedy International",2884.00,437.00,202.31,1.70,100.56,1.83,130.61,0.00,3.00,28765.00,14724.00,56.00,3596.00,29.00,10360.00
+2024,10,B6,JetBlue Airways,JFK,"New York, NY: John F. Kennedy International",2981.00,427.00,203.93,2.39,95.44,0.87,124.37,44.00,1.00,27781.00,15806.00,252.00,2950.00,76.00,8697.00
+2024,9,B6,JetBlue Airways,JFK,"New York, NY: John F. Kennedy International",2890.00,513.00,224.62,4.49,120.78,1.46,161.65,13.00,7.00,39411.00,21791.00,251.00,4224.00,56.00,13089.00
+2024,8,B6,JetBlue Airways,JFK,"New York, NY: John F. Kennedy International",3218.00,1067.00,315.58,25.18,262.17,1.99,462.08,216.00,18.00,113727.00,42530.00,2120.00,21859.00,131.00,47087.00
+2024,7,B6,JetBlue Airways,JFK,"New York, NY: John F. Kennedy International",3198.00,1016.00,305.78,18.31,285.38,0.08,406.46,73.00,17.00,94990.00,35325.00,1522.00,19613.00,5.00,38525.00
+2024,6,B6,JetBlue Airways,JFK,"New York, NY: John F. Kennedy International",3091.00,915.00,282.67,15.95,275.64,1.52,339.22,112.00,27.00,92800.00,33264.00,2181.00,23776.00,76.00,33503.00
+2024,5,B6,JetBlue Airways,JFK,"New York, NY: John F. Kennedy International",3191.00,800.00,269.32,10.42,217.11,1.67,301.47,30.00,13.00,66709.00,22236.00,1128.00,14256.00,53.00,29036.00
+2024,4,B6,JetBlue Airways,JFK,"New York, NY: John F. Kennedy International",3074.00,660.00,207.67,5.06,160.98,1.00,285.29,51.00,11.00,56121.00,21834.00,406.00,9103.00,88.00,24690.00
+2024,3,B6,JetBlue Airways,JFK,"New York, NY: John F. Kennedy International",3063.00,963.00,295.81,6.08,229.35,0.00,431.75,60.00,11.00,98360.00,32829.00,1919.00,13275.00,0.00,50337.00
+2024,2,B6,JetBlue Airways,JFK,"New York, NY: John F. Kennedy International",2675.00,660.00,235.63,3.81,142.16,1.60,276.80,57.00,5.00,53042.00,21502.00,210.00,5343.00,38.00,25949.00
+2024,1,B6,JetBlue Airways,JFK,"New York, NY: John F. Kennedy International",2690.00,747.00,250.25,11.78,187.99,0.00,296.98,48.00,9.00,64287.00,24736.00,1306.00,9543.00,0.00,28702.00
+2023,12,B6,JetBlue Airways,JFK,"New York, NY: John F. Kennedy International",3200.00,992.00,344.65,7.23,301.18,0.95,337.99,14.00,5.00,78842.00,32809.00,609.00,13890.00,35.00,31499.00
+2023,11,B6,JetBlue Airways,JFK,"New York, NY: John F. Kennedy International",3277.00,790.00,323.68,6.46,167.37,3.22,289.27,6.00,5.00,59170.00,29824.00,577.00,6185.00,74.00,22510.00
