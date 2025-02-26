@@ -1,0 +1,109 @@
+---
+title: "Flight Delay Analysis"
+author: "Yaritza Rendon"
+date: "2025-02-26"
+output:
+  html_document: default
+---
+## Jetblue Flight Delay Analysis Using R
+This project analyzes Jetblue flight delays from November 2023 to November 2024. The goal is to clean the data set, perform an exploratory data analysis, and visualize delay trends to identify the main causes of delays. By understanding these causes, we can provide insights that may help avoid future delays.
+```{r}
+library(tidyverse)
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Step 1: Data Cleaning
+Load the data set.
+```{r}
+# Load necessary libraries
+library(tidyverse)
+# Import the csv file
+df <- read.csv("Jetblue_Delay_Cause_Nov2023-Nov2024.csv")
+```
+Inspect the data.
+```{r}
+# View structure and summary
+str(df)
+summary(df)
+```
+Clean the data.
+```{r}
+# Check for missing values
+colSums(is.na(df)) 
+# Fills or removes rows with NA values if necessary
+df <- df %>% drop_na()
+```
+Convert data types
+```{r}
+# Convert month and year to a date format
+df <- df %>% mutate(date = as.Date(paste(year, month, "01", sep = "-"))) 
+```
+# Step 2: Exploratory Data Analysis
+Summary Statistics
+```{r}
+# Summary of key delay-related columns
+summary(df %>% select(arr_del15, carrier_ct, weather_ct, nas_ct, security_ct, late_aircraft_ct)) 
+```
+Identify top delay causes
+```{r}
+# Calculate total delays by category
+df %>% summarise(
+  Carrier = sum(carrier_ct),
+  Weather = sum(weather_ct),
+  NAS = sum(nas_ct),
+  Security = sum(security_ct),
+  Late_Aircraft = sum(late_aircraft_ct)
+) %>% pivot_longer(everything(), names_to = "Cause", values_to = "Total_Delays") %>%
+  arrange(desc(Total_Delays))
+```
+Correlation between delay causes
+```{r}
+# Compute correlation between delay causes
+cor_matrix <- cor(df %>% select(carrier_ct, weather_ct, nas_ct, security_ct, late_aircraft_ct))
+cor_matrix
+```
+# Step 3: Data Visualization
+Install and run packages for data visualization.
+```{r}
+install.packages("ggplot2")
+library(ggplot2)
+```
+Let's visualize some data.
+```{r}
+ggplot(df, aes(x = date, y = arr_del15)) +
+  geom_line(color = "blue") +
+  labs(title = "Monthly Flight Delays", x = "Month", y = "Delayed Flights") # line chart of delays over time
+```
+Let's do one more.
+```{r}
+ggplot(df %>% pivot_longer(cols = carrier_ct:late_aircraft_ct, names_to = "Cause", values_to = "Count"),
+       aes(x = Cause, y = Count, fill = Cause)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  labs(title = "Total Delays by Cause", x = "Delay Cause", y = "Total Count") # bar chart of total delays by cause
+```
+```{r}
+install.packages("reshape2")
+library(reshape2)
+library(ggplot2)
+```
+```{r}
+# Convert correlation matrix to long format for heatmap
+cor_melt <- melt(cor_matrix)
+
+ggplot(cor_melt, aes(Var1, Var2, fill = value)) +
+  geom_tile() +
+  scale_fill_gradient2(low = "blue", high = "red", mid = "white", midpoint = 0, limit = c(-1,1)) +
+  theme_minimal() +
+  labs(title = "Correlation Heatmap of Delay Causes", x = "Cause", y = "Cause")
+```
+# Conclusion
+
+This analysis provides  some insights into the major causes of JetBlue flight delays. These findings suggest that late aircraft and carrier delays are the most significant contributors to overall delays. The correlation analysis helps identify relationships between different types of delays, which can be useful for operational planning.
+
+# Recommendations:
+
+Investigate Carrier Delays – Further analysis can help identify the root causes of operational delays within JetBlue.
+
+Monitor Late Aircraft Impact – Since late aircraft delays trickle down throughout the day, improved scheduling could help minimize delays.
+
+Weather-Based Predictions – Integrating weather data might help anticipate and mitigate weather-related disruptions.
